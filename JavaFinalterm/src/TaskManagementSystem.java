@@ -56,11 +56,9 @@ public class TaskManagementSystem {
     private static List<Assignment> assignments = new ArrayList<>();
     private static final String FILE_NAME = "assignments.txt";
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
-
     public static void main(String[] args) {
         loadAssignments();
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
             checkDueDates();
             System.out.println("\n과제 제출 시스템");
@@ -71,10 +69,8 @@ public class TaskManagementSystem {
             System.out.println("5. 피드백");
             System.out.println("6. 저장 후 종료");
             System.out.print("원하는 작업을 선택하세요: ");
-
             int choice = scanner.nextInt();
             scanner.nextLine();
-
             switch (choice) {
                 case 1:
                     addAssignment(scanner);
@@ -100,7 +96,6 @@ public class TaskManagementSystem {
             }
         }
     }
-
     private static void addAssignment(Scanner scanner) {
         System.out.print("과제 제목을 입력하세요: ");
         String title = scanner.nextLine();
@@ -108,7 +103,6 @@ public class TaskManagementSystem {
         String description = scanner.nextLine();
         System.out.print("마감일을 입력하세요 (YYYY-MM-DD): ");
         String dueDate = scanner.nextLine();
-
         assignments.add(new Assignment(title, description, dueDate));
         System.out.println("과제가 성공적으로 추가되었습니다.");
     }
