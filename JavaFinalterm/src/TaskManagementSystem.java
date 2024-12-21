@@ -202,7 +202,6 @@ public class TaskManagementSystem {
             System.out.println("과제를 불러오는 동안 오류가 발생했습니다: " + e.getMessage());
         }
     }
-
     private static void checkDueDates() {
         Date today = new Date();
         for (Assignment assignment : assignments) {
