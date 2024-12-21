@@ -17,41 +17,32 @@ class Assignment {
         this.status = "시작하지 않음";
         this.feedback = "";
     }
-
     public String getTitle() {
         return title;
     }
-
     public String getDescription() {
         return description;
     }
-
     public String getDueDate() {
         return dueDate;
     }
-
     public String getStatus() {
         return status;
     }
-
     public String getFeedback() {
         return feedback;
     }
-
     public void setStatus(String status) {
         this.status = status;
     }
-
     public void setFeedback(String feedback) {
         this.feedback = feedback;
     }
-
     @Override
     public String toString() {
         return "제목: " + title + "\n설명: " + description + "\n마감일: " + dueDate + "\n상태: " + status + "\n피드백: " + feedback;
     }
 }
-
 public class TaskManagementSystem {
     private static List<Assignment> assignments = new ArrayList<>();
     private static final String FILE_NAME = "assignments.txt";
@@ -106,7 +97,6 @@ public class TaskManagementSystem {
         assignments.add(new Assignment(title, description, dueDate));
         System.out.println("과제가 성공적으로 추가되었습니다.");
     }
-
     private static void viewAssignments() {
         if (assignments.isEmpty()) {
             System.out.println("등록된 과제가 없습니다.");
@@ -117,17 +107,14 @@ public class TaskManagementSystem {
             }
         }
     }
-
     private static void updateStatus(Scanner scanner) {
         if (assignments.isEmpty()) {
             System.out.println("상태를 업데이트할 과제가 없습니다.");
             return;
         }
-
         System.out.print("상태를 업데이트할 과제 번호를 입력하세요: ");
         int index = scanner.nextInt() - 1;
         scanner.nextLine();
-
         if (index >= 0 && index < assignments.size()) {
             System.out.print("새 상태를 입력하세요 (예: 시작하지 않음, 진행 중, 제출 완료): ");
             String status = scanner.nextLine();
@@ -137,13 +124,11 @@ public class TaskManagementSystem {
             System.out.println("잘못된 과제 번호입니다.");
         }
     }
-
     private static void submitAssignment(Scanner scanner) {
         if (assignments.isEmpty()) {
             System.out.println("제출할 과제가 없습니다.");
             return;
         }
-
         System.out.print("제출할 과제 번호를 입력하세요: ");
         int index = scanner.nextInt() - 1;
         scanner.nextLine();
@@ -163,7 +148,6 @@ public class TaskManagementSystem {
         System.out.print("피드백을 제공할 과제 번호를 입력하세요: ");
         int index = scanner.nextInt() - 1;
         scanner.nextLine();
-
         if (index >= 0 && index < assignments.size()) {
             System.out.print("피드백 내용을 입력하세요: ");
             String feedback = scanner.nextLine();
@@ -173,7 +157,6 @@ public class TaskManagementSystem {
             System.out.println("잘못된 과제 번호입니다.");
         }
     }
-
     private static void saveAssignments() {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
             oos.writeObject(assignments);
